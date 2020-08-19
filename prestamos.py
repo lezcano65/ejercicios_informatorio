@@ -48,6 +48,8 @@ class clientes:
         pass
 class empleados:
     def __init__(self,nombre,cuil):
+class empleados:
+    def __init__(self,nombre,cuil):
         self.nombre = nombre
         self.cuil = cuil
 class prestamos:
