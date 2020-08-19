@@ -106,40 +106,6 @@ def crear_instancia_clientes():
     clientes(dni, nombres, apellidos,telefono,celular)
     return clientes(dni, nombres, apellidos,telefono,celular)
 
-class sistema:
-    def __init__(self):
-        connect()
-        create_tablas()
-    def menu(self):
-        print()
-        menu = [
-            ['sistema de prestamos'],
-            ['1. Añadir cliente'],
-            ['2. Lista de clientes'],
-            ['3. Buscar cliente'],
-            ['4. Editar cliente'],
-            ['5. Salir del sistema']
-        ]
-        for x in range(6):
-            print(menu[x])
-        while True:
-            try:    
-                opcion = int(input("Introduzca la opción deseada: "))
-                break
-            except:
-                print('intente de nuevo')
-        if opcion == 1:
-            print()
-        elif opcion == 2:
-            print()
-        elif opcion == 3:
-            print()
-        elif opcion == 4:
-            print()
-        elif opcion == 5:
-            print("Saliendo del sistema ...")
-            exit()
-        self.menu()
 
 class pago_coutas:
     def __init__(self,numero_prestamo,numero_cuota,fecha_pago,montopagado):
@@ -192,5 +158,30 @@ class prestamos:
     def consultar_cliente(self):
         pass 
 
-sistemaprestamo = sistema()
-sistemaprestamo.menu()
+create_tablas()
+opcion = 0
+while (opcion != 5):
+    print()
+    menu = [
+        ['sistema de prestamos'],
+        ['1. Añadir cliente'],
+        ['2. Lista de clientes'],
+        ['3. Buscar cliente'],
+        ['4. Editar cliente'],
+        ['5. Salir del sistema']
+    ]
+    for x in range(6):
+        print(menu[x])
+    opcion = int(input("Introduzca la opción deseada: "))
+    if opcion == 1:
+        get_all_data_clientes()
+    elif opcion == 2:
+        print()
+    elif opcion == 3:
+        print()
+    elif opcion == 4:
+        print()
+    elif opcion == 5:
+        print("Saliendo del sistema ...")
+        exit()
+

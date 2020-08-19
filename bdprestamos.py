@@ -52,3 +52,24 @@ def create_tablas():
     except (pymysql.err.OperationalError, pymysql.err.InternalError) as e:
         print("No se pudo crear la tabla cuotas_prestamos: ", e)
     conexion.close()
+
+def get_all_data_clientes():
+    try:
+        connection = pymysql.connect(host='localhost',
+                                    user='root',
+                                    password='lezcano65',
+                                    db='prestamosdb')
+        sql_select_Query = "select * from clientes"
+        cursor = connection.cursor()
+        cursor.execute(sql_select_Query)
+        records = cursor.fetchall()
+        for row in records:
+            if row=='':
+                print("No hay contactos...")
+            else:
+                print('[+]dni:',row[0],'\n[+]nombres:',row[1],'\n[+]apellidos:',row[2],'\n[+]telefono:',row[3],'\n[+]celular:',row[3],"\n----------") 
+    except (pymysql.err.OperationalError, pymysql.err.InternalError) as e:
+        print("Error reading data from MySQL table", e)
+    finally:
+        connection.close()
+        cursor.close()
